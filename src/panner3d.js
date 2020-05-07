@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 define(function (require) {
   var p5sound = require('master');
@@ -21,10 +21,10 @@ define(function (require) {
    * @constructor
    */
 
-	p5.Panner3D = function() {
-      Effect.call(this);
+  p5.Panner3D = function() {
+    Effect.call(this);
 
-      /**
+    /**
        *  <a title="Web Audio Panner docs"  href=
        *  "https://developer.mozilla.org/en-US/docs/Web/API/PannerNode">
        *  Web Audio Spatial Panner Node</a>
@@ -38,12 +38,12 @@ define(function (require) {
        *  @property {AudioNode} panner
        *
        */
-      this.panner = this.ac.createPanner();
-      this.panner.panningModel = 'HRTF';
-      this.panner.distanceModel = 'linear';
-      this.panner.connect(this.output);
-      this.input.connect(this.panner);
-	};
+    this.panner = this.ac.createPanner();
+    this.panner.panningModel = 'HRTF';
+    this.panner.distanceModel = 'linear';
+    this.panner.connect(this.output);
+    this.input.connect(this.panner);
+  };
 
   p5.Panner3D.prototype = Object.create(Effect.prototype);
 
@@ -57,7 +57,7 @@ define(function (require) {
    */
   p5.Panner3D.prototype.process = function(src) {
     src.connect(this.input);
-  }
+  };
   /**
    * Set the X,Y,Z position of the Panner
    * @method set
@@ -73,8 +73,8 @@ define(function (require) {
     this.positionY(yVal,time);
     this.positionZ(zVal,time);
     return [this.panner.positionX.value,
-              this.panner.positionY.value,
-              this.panner.positionZ.value];
+      this.panner.positionY.value,
+      this.panner.positionZ.value];
   };
 
   /**
@@ -140,12 +140,12 @@ define(function (require) {
    * @return {Array}      Updated x, y, z values as an array
    */
   p5.Panner3D.prototype.orient = function(xVal, yVal, zVal, time) {
-  this.orientX(xVal,time);
-  this.orientY(yVal,time);
-  this.orientZ(zVal,time);
-  return [this.panner.orientationX.value,
-          this.panner.orientationY.value,
-          this.panner.orientationZ.value];
+    this.orientX(xVal,time);
+    this.orientY(yVal,time);
+    this.orientZ(zVal,time);
+    return [this.panner.orientationX.value,
+      this.panner.orientationY.value,
+      this.panner.orientationZ.value];
   };
 
   /**
@@ -218,7 +218,7 @@ define(function (require) {
    * @param  {Number} maxDistance
    * @return {Number} updated value
    */
-  p5.Panner3D.prototype.maxDist = function(maxDistance){
+  p5.Panner3D.prototype.maxDist = function(maxDistance) {
     if (typeof maxDistance === 'number') {
       this.panner.maxDistance = maxDistance;
     }
@@ -232,7 +232,7 @@ define(function (require) {
    * @param  {Number} rolloffFactor
    * @return {Number} updated value
    */
-  p5.Panner3D.prototype.rolloff = function(rolloffFactor){
+  p5.Panner3D.prototype.rolloff = function(rolloffFactor) {
     if (typeof rolloffFactor === 'number') {
       this.panner.rolloffFactor = rolloffFactor;
     }

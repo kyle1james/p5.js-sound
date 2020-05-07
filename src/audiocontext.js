@@ -108,7 +108,7 @@ define(['startaudiocontext', 'Tone/core/Context', 'Tone/core/Tone'], function (S
     if (elements instanceof p5.Element) {
       elt = elements.elt;
     } else if (elements instanceof Array && elements[0] instanceof p5.Element ) {
-      elt = elements.map(function(e) { return e.elt});
+      elt = elements.map(function(e) { return e.elt;});
     }
     return StartAudioContext(audiocontext, elt, callback);
   };

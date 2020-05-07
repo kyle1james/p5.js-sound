@@ -23,8 +23,13 @@ module.exports = function(grunt) {
     // Configure style consistency
     eslint: {
       source: {
-        options: {configFile: './.eslintrc'},
+        options: {
+          configFile: './.eslintrc',
+          // auto fixes
+          fix: true
+        },
         src: ['src/**/*.js', 'test/tests/**/*.js']
+
       }
     },
     webpack: {
@@ -65,7 +70,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('lint', ['eslint:source']);
   grunt.registerTask('default', ['webpack:prod', 'decomment']);
-  grunt.registerTask('dev', ['connect','webpack:dev', 'decomment']);
+  grunt.registerTask('dev', ['eslint','connect','webpack:dev', 'decomment']);
   grunt.registerTask('serve', 'connect:server:keepalive');
   grunt.registerTask('run-tests', ['serve', 'open']);
 };

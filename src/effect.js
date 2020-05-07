@@ -33,7 +33,7 @@ define(function (require) {
     this.input = this.ac.createGain();
     this.output = this.ac.createGain();
 
-     /**
+    /**
       *	The p5.Effect class is built
       * 	using Tone.js CrossFade
       * 	@private
@@ -67,7 +67,7 @@ define(function (require) {
    *  @param {Number} [rampTime] create a fade that lasts until rampTime
    *  @param {Number} [tFromNow] schedule this event to happen in tFromNow seconds
    */
-  p5.Effect.prototype.amp = function(vol, rampTime, tFromNow){
+  p5.Effect.prototype.amp = function(vol, rampTime, tFromNow) {
     var rampTime = rampTime || 0;
     var tFromNow = tFromNow || 0;
     var now = p5sound.audiocontext.currentTime;
@@ -86,10 +86,10 @@ define(function (require) {
    *  @for p5.Effect
    *  @param {Object} [arguments]  Chain together multiple sound objects
    */
-  p5.Effect.prototype.chain = function(){
-    if (arguments.length>0){
+  p5.Effect.prototype.chain = function() {
+    if (arguments.length>0) {
       this.connect(arguments[0]);
-      for(var i=1;i<arguments.length; i+=1){
+      for(var i=1;i<arguments.length; i+=1) {
         arguments[i-1].connect(arguments[i]);
       }
     }
@@ -103,9 +103,9 @@ define(function (require) {
    *  @for p5.Effect
    *  @param {Number} [fade] The desired drywet value (0 - 1.0)
    */
-  p5.Effect.prototype.drywet = function(fade){
-    if (typeof fade !=="undefined"){
-      this._drywet.fade.value = fade
+  p5.Effect.prototype.drywet = function(fade) {
+    if (typeof fade !=='undefined') {
+      this._drywet.fade.value = fade;
     }
     return this._drywet.fade.value;
   };

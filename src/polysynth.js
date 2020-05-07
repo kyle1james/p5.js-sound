@@ -185,7 +185,7 @@ define(function (require) {
   p5.PolySynth.prototype.noteADSR = function (note,a,d,s,r,timeFromNow) {
     var now = p5sound.audiocontext.currentTime;
     var timeFromNow = timeFromNow || 0;
-    var t = now + timeFromNow
+    var t = now + timeFromNow;
     this.audiovoices[ this.notes[note].getValueAtTime(t) ].setADSR(a,d,s,r);
   };
 
@@ -381,7 +381,7 @@ define(function (require) {
     // if a note value is not provided, release all voices
     if (!_note) {
       this.audiovoices.forEach(function(voice) {
-        voice.triggerRelease(tFromNow)
+        voice.triggerRelease(tFromNow);
       });
       this._voicesInUse.setValueAtTime(0, t);
       for (var n in this.notes) {
